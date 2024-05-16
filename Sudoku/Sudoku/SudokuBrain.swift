@@ -12,7 +12,7 @@ class SudokuBrain: ObservableObject {
     @Published var board = SudokuBoard()
     
     func generateNewBoard() {
-        board.refreshBoard()
+        board.generateNewBoard()
     }
     
 }
@@ -108,10 +108,12 @@ struct SudokuBoard {
         cells[index] = value
     }
     
-    mutating func refreshBoard() {
+    mutating func generateNewBoard() {
         cells.forEach { (key: SudokuIndex, value: Int) in
             set(Int.random(in: 1...9), with: key)
         }
     }
+    
+    
     
 }
